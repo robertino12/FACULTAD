@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--fuente de letra-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,600&display=swap" rel="stylesheet">    <!--titulo-->
+    <!-- Importarmos estilo de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/s/juego-oca/favicon.png">
+    <title>¡Bienvenido al juego de la oca!</title>
+    <!-- Importarmos una hoja de estilo en local -->
+    <link rel="stylesheet" href="/s/juego-oca/estilo.css">
+</head>
+<body>
+
+    <center><h1 class="titulo-oca">¡BIENVENIDO AL JUEGO DE LA OCA!</h1></center>
+
+    <center><p class="subtitulo-oca">Escribí tu nombre y elegí un color para comenzar a jugar</p></center>
+    
+    <form id = "formulario">
+
+            <ul class="list-group mx-auto" style="width: 290px;">
+
+                <li class="list-group-item" style="width: 290px;">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="user_name" required>
+                </li>
+
+                <li class="list-group-item" style="width: 290px;">
+                    <label for="color">Color:</label>
+                    <select id = "color" name="selected_color">
+                        <option value="yellow">Amarillo</option>
+                        <option value="red">Rojo</option>
+                        <option value="blue">Azul</option>
+                        <option value="green">Verde</option>
+                    </select>
+                </li>
+
+                <li class="list-group-item button" style="width: 290px;">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Enviar datos</button>
+                    </div>
+                </li>
+
+            </ul>
+            
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script> 
+        console.log("se ejecuta script")
+        Swal.fire({
+        title: 'Elegí otro color!',
+        text: 'El color que elegiste es el mismo que utilizó el jugador 1. Si querés entrar a esa sala, cambia tu elección!',
+        imageUrl: 'https://www.pngall.com/wp-content/uploads/2017/05/Alert-Download-PNG.png',
+        imageWidth: 400,
+        imageAlt: 'Desconectado',
+        })
+        let form = document.getElementById('formulario'); 
+        let nameInput = document.getElementById('name');
+        let colorInput = document.getElementById('color');
+        
+        // Evento submit del formulario
+        form.addEventListener('submit', function(event) {
+        
+          event.preventDefault(); // Prevenir el envío del formulario
+        
+          //Obtememos los valores ingresados por el usuario en el form
+          let name = nameInput.value;
+          let color = colorInput.value;
+          // guardamos los valores en el localStorage
+          sessionStorage.setItem('nombre', name);
+          sessionStorage.setItem('color', color);
+        
+          window.location.href = "/juego-oca/welcome-join"; //redirigo a a la pagina para unir o crear partida
+        
+        });
+    </script>
+</body>
+</html>

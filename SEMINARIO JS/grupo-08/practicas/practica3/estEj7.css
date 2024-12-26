@@ -1,0 +1,55 @@
+body{
+    background-image:url(pexels-alberlan-barros-7311920.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-family: "Lucida Console", Courier, monospace; /* cambiamos la tipografía por una más acorde */
+}
+#opacidad{
+    background-color: rgba(0,0,0,0.7);/*para darle opacidad*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;/*estos tres son para q cubra toda la imagen de fondo*/
+    z-index: -1;/*para poner la capa detras de todos los elementos*/
+}
+#siguiente,#anterior{
+    background-color: yellow; /* le damos color a los botones */
+    width: 60px;
+    border:none;
+}
+#personajes{
+    color:white;
+    cursor: pointer; /* para que el cursor pase a ser una manito */
+    width : 210px; /* para que el ul sea más pequeño y no aparezca la manito muy lejos del texto */
+}
+#pag{
+    color:white;
+    text-align:center;
+}
+#titPrinc{
+    color: white;
+    text-align:center;
+}
+.carac{
+    color: white;
+    list-style-type: none; /* sacamos los puntitos de la lista */
+}
+#titulo{
+    color: white;
+    text-align:center;
+}
+#listapelis {
+    padding-inline-start: 0px; /* sacamos espacio para que aparezca a la misma altura que el resto de características */
+    list-style-type: circle; /* puntitos para la lista */
+}
+.idspelis {
+    padding-inline-start: 0px; 
+    margin-left: 30px; /* para que las pelis aparezcan indentadas */
+}
+#divgral { 
+    width: 320px; margin: 0 auto; /* para centrar todo */
+}
+#divbotones {
+    width: 160px; margin: 0 auto; /* para centrar los botones */
+}

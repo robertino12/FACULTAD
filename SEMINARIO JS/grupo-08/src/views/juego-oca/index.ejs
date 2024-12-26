@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/s/juego-oca/favicon.png">
+    <!--fuente de letra-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,600&display=swap" rel="stylesheet">    <!--titulo-->
+    <title>Juego De La OCA</title>
+    <!-- Importarmos estilo de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Importarmos una hoja de estilo en local -->
+    <link rel="stylesheet" href="/s/juego-oca/estilo.css">
+</head>
+<body>
+    
+    <center><h1 class="titulo-oca"> JUEGO DE LA OCA </h1></center>
+    
+    <div class="container">
+
+        <div class="row"> <!-- Para separar elementos a la izq, centro o derecha -->
+            
+            <div class="col-sm-3"> <!-- Elementos que están a la izquierda -->
+
+                <div class="card"> <!-- sala y jugadores -->
+                    <div class="card-body">
+                        <h2>ID de la sala:  <span id = "idsala"></span> </h2>
+                        <ul class="list-group"></ul>
+                    </div>
+                </div>
+
+                <br></br> <!-- Espacio (útil para quede espacio al achicar al mínimo la ventana) -->  
+
+                <div class="card"> <!-- Botón para salir -->
+                    <div class="card-body">
+                        <div class="row justify-content-center"><button id="salir_button"  class="btn btn-danger" style="width: 150px;">Abandonar juego</button> </div><!-- Botón dado -->
+                    </div>
+                </div>
+
+                <br></br> <!-- Espacio (útil para quede espacio al achicar al mínimo la ventana) -->  
+
+            </div>
+
+            <div class="col-sm-6"> <!-- Elementos al centro -->
+
+                <div class="card"  style="padding: 40px;"> 
+                
+                    <div class="row justify-content-center">
+                        <table><tr>
+                            <td id="t0p1">LARGADA JUGADOR 1</td>
+                            <td id="t0p2">LARGADA JUGADOR 2</td>
+                        </tr></table> <!-- Casillero de comienzo del jugador -->
+                    </div> 
+                
+                    <br></br> <!-- Espacio -->
+                
+                    <div class="row justify-content-center">
+                        <table id="tablero"> <!-- Tablero de 1 a 20 -->
+                            <tr> <!-- Primera fila-->
+                                <td id="t1">01</td> <!-- Primera celda -->
+                                <td id="t2">02</td> <!-- Segunda celda -->
+                                <td id="t3">03</td> <!-- Tercera celda -->
+                                <td id="t4">04</td> <!-- Cuarta  celda -->
+                                <td id="t5">05</td> <!-- Quinta  celda -->
+                            </tr> 
+                            <tr> <!-- Segunda fila-->
+                                <td id="t6">06</td> <!-- Primera celda -->
+                                <td id="t7">07</td> <!-- Segunda celda -->
+                                <td id="t8">08</td> <!-- Tercera celda -->
+                                <td id="t9">09</td> <!-- Cuarta  celda -->
+                                <td id="t10">10</td> <!-- Quinta  celda -->
+                            </tr> 
+                            <tr> <!-- Tercera fila-->
+                                <td id="t11">11</td> <!-- Primera celda -->
+                                <td id="t12">12</td> <!-- Segunda celda -->
+                                <td id="t13">13</td> <!-- Tercera celda -->
+                                <td id="t14">14</td> <!-- Cuarta  celda -->
+                                <td id="t15">15</td> <!-- Quinta  celda -->
+                            </tr> 
+                            <tr> <!-- Cuarta  fila-->
+                                <td id="t16">16</td> <!-- Primera celda -->
+                                <td id="t17">17</td> <!-- Segunda celda -->
+                                <td id="t18">18</td> <!-- Tercera celda -->
+                                <td id="t19">19</td> <!-- Cuarta  celda -->
+                                <td id="t20">20</td> <!-- Quinta  celda -->
+                            </tr> 
+                        </table>
+
+                    </div>
+
+                <br></br> <!-- Espacio -->  
+
+                <div class="row justify-content-center">
+                    <table><tr><td id="t21"> FIN DEL JUEGO </td></tr></table> <!-- Casillero donde se gana el juego -->
+                </div> 
+                
+                </div>
+
+                <br></br> <!-- Espacio (útil para quede espacio al achicar al mínimo la ventana) -->  
+
+            </div>
+
+            <div class="col-sm-3"> <!-- Elementos a la derecha -->
+
+                <div class="card"> <!-- Sección del jugador y el dado -->
+                    <div class="card-body">
+                        <h5 class="card-title">Turno: Jugador <span id="numTurn">1</span></h5> <!-- Turno actual -->
+                        <p class="card-text">El jugador debe tirar el dado y responder la pregunta</p> <!-- Indicación para el usuario -->
+                        <div class="row justify-content-center"><button id="dado"  class="btn btn-primary" style="width: 150px;">Tirar DADO</button> <!-- Botón dado -->
+                        <span id="num" class="row justify-content-center"></span></div> <!-- Número dado -->
+                    </div>
+                </div>
+
+                <br></br> <!-- Espacio -->  
+
+                <div id="pregunta" class="card"> <!-- Sección de pregunta y/o respuestas -->
+                    <div class="card-header">
+                        <ul id="preguntaPosta" class="list-group list-group-flush"> <!-- Acá se muestra la pregunta-->
+                            Acá se mostrará la pregunta...
+                            <!-- Las respuestas se agregan como li con JS -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/s/juego-oca/clienteOca.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!--conectamos sweet alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

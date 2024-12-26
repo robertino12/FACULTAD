@@ -1,0 +1,488 @@
+[
+
+	{
+		"pregunta": "¿Cuántos mundiales ganó Argentina?",
+        "respuestas": [
+            {
+                "text": "2",
+                "value": false
+            },
+            {
+                "text": "3",
+                "value": true
+            },
+            {
+                "text": "4",
+                "value": false
+            }
+        ]
+	},
+
+	{
+		"pregunta": "¿Cuántos campeonatos mundiales ganó Uruguay?",
+		"respuestas": [
+            {
+                "text": "2",
+                "value": true
+            },
+            {
+                "text": "4",
+                "value": false
+            },
+            {
+                "text": "5",
+                "value": false
+            }
+        ]
+	},
+    {
+		"pregunta": "¿Como se le dice a las personas que viven en capital Federal(CABA)?",
+		"respuestas": [
+            {
+                "text": "Buenosirenio",
+                "value": false
+            },
+            {
+                "text": "Bonaerense",
+                "value": false
+            },
+            {
+                "text": "Porteño",
+                "value": true
+            }
+        ]
+	},{
+		"pregunta": "¿De que lado esta el corazon?",
+		"respuestas": [
+            {
+                "text": "Izquierdo",
+                "value": true
+            },
+            {
+                "text": "En el medio",
+                "value": false
+            },
+            {
+                "text": "Derecho",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Quien creo la Bandera Argentina?",
+		"respuestas": [
+            {
+                "text": "Manuel Belgrano",
+                "value": true
+            },
+            {
+                "text": "San Martin",
+                "value": false
+            },
+            {
+                "text": "Martín Güemes",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Que pais salio campeon en el mundial 2006?",
+		"respuestas": [
+            {
+                "text": "España",
+                "value": false
+            },
+            {
+                "text": "Francia",
+                "value": false
+            },
+            {
+                "text": "Italia",
+                "value": true
+            }
+        ]
+	},{
+		"pregunta": "¿Cual es la capital de Brasil?",
+		"respuestas": [
+            {
+                "text": "Brasilia",
+                "value": true
+            },
+            {
+                "text": "Rio de Janeiro",
+                "value": false
+            },
+            {
+                "text": "Sao Pablo",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Cual de los siguientes paises esta ubicado en Africa?",
+		"respuestas": [
+            {
+                "text": "Mongolia",
+                "value": false
+            },
+            {
+                "text": "Chad",
+                "value": true
+            },
+            {
+                "text": "Haiti",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Que pasa cuando juntamos Agua y Aceite?",
+		"respuestas": [
+            {
+                "text": "Se mantienen separados",
+                "value": true
+            },
+            {
+                "text": "Se mezclan",
+                "value": false
+            },
+            {
+                "text": "Explotan",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿A que temperatura se congela el Agua exactamente?",
+		"respuestas": [
+            {
+                "text": "-10ºC",
+                "value": false
+            },
+            {
+                "text": "10ºC",
+                "value": false
+            },
+            {
+                "text": "0ºC",
+                "value": true
+            }
+        ]
+	},{
+		"pregunta": "¿A que temperatura empieza el Agua a hervir?",
+		"respuestas": [
+            {
+                "text": "100ºC",
+                "value": true
+            },
+            {
+                "text": "200ºC",
+                "value": false
+            },
+            {
+                "text": "90ºC",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Cual de los siguientes musculos estan en las piernas?",
+		"respuestas": [
+            {
+                "text": "Abdominales",
+                "value": false
+            },
+            {
+                "text": "Biceps",
+                "value": false
+            },
+            {
+                "text": "Cuadriceps",
+                "value": true
+            }
+        ]
+	},{
+		"pregunta": "¿Cual es el animal terrestre mas grande del mundo?",
+		"respuestas": [
+            {
+                "text": "Rinoceronte",
+                "value": false
+            },
+            {
+                "text": "Ballena Azul",
+                "value": false
+            },
+            {
+                "text": "Elefante",
+                "value": true
+
+            }
+        ]
+	},{
+		"pregunta": "¿Cuanto es [3+2*10+1]?",
+		"respuestas": [
+            {
+                "text": "24",
+                "value": true
+            },
+            {
+                "text": "51",
+                "value": false
+            },
+            {
+                "text": "55",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Cuanto es 6 elevado a la 0?",
+		"respuestas": [
+            {
+                "text": "0",
+                "value": false
+            },
+            {
+                "text": "1",
+                "value": true
+            },
+            {
+                "text": "6",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿Quien es la cantante de la cancion Poker Face?",
+		"respuestas": [
+            {
+                "text": "Lady Gaga",
+                "value": true
+            },
+            {
+                "text": "Taylor Swift",
+                "value": false
+            },
+            {
+                "text": "Nicki Minaj",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿A que se dedicaba Mike Tyson?",
+		"respuestas": [
+            {
+                "text": "Era Basquetbolista",
+                "value": false
+            },
+            {
+                "text": "Era Boxeador",
+                "value": true
+            },
+            {
+                "text": "Era Corredor",
+                "value": false
+            }
+        ]
+	},{
+		"pregunta": "¿De que pais es Cristiano Ronaldo?",
+		"respuestas": [
+            {
+                "text": "España",
+                "value": false
+            },
+            {
+                "text": "Portugal",
+                "value": true
+            },
+            {
+                "text": "Brasil",
+                "value": false
+            }
+        ]
+	},{
+        "pregunta": "¿En que año se lanzó el primer iPhone?",
+		"respuestas": [
+            {
+                "text": "2010",
+                "value": false
+            },
+            {
+                "text": "2007",
+                "value": true
+            },
+            {
+                "text": "2008",
+                "value": false
+            }
+        ]
+    },{
+		"pregunta": "¿Qué es un DAC?",
+		"respuestas": [
+            {
+                "text": "Un dispositivo de aire controlado",
+                "value": false
+            },
+            {
+                "text": "Un conversor de señal digital a analógica",
+                "value": true
+            },
+            {
+                "text": "Las siglas utilizadas como nombre artístico por un famoso rapero",
+                "value": false
+            }
+        ]
+	},{
+        "pregunta": "¿Cuantos balones de oro tiene Lionel Messi?",
+		"respuestas": [
+            {
+                "text": "3",
+                "value": false
+            },
+            {
+                "text": "7",
+                "value": true
+            },
+            {
+                "text": "5",
+                "value": false
+            }
+        ]
+    },{
+        "pregunta": "¿Que equipo de futbol es conocido como El Xeneize?",
+		"respuestas": [
+            {
+                "text": "River",
+                "value": false
+            },
+            {
+                "text": "San Lorenzo",
+                "value": false
+            },
+            {
+                "text": "Boca",
+                "value": true
+            }
+        ] 
+    },{
+        "pregunta": "¿Que grupo de rock argentino fue liderado por Gustavo Cerati?",
+		"respuestas": [
+            {
+                "text": "Los Auténticos Decadentes",
+                "value": false
+            },
+            {
+                "text": "Los Fabulosos Cadillacs",
+                "value": false
+            },
+            {
+                "text": "Soda Stereo",
+                "value": true
+            }
+        ]
+    },{
+        "pregunta": "¿En donde se encuentra el estadio Monumental?",
+		"respuestas": [
+            {
+                "text": "Buenos Aires",
+                "value": true
+            },
+            {
+                "text": "Cordoba",
+                "value": false
+            },
+            {
+                "text": "Santa Fe",
+                "value": false
+            }
+        ]
+    },{
+        "pregunta": "¿En que año la Selección Argentina ganó su primer mundial de futbol?",
+		"respuestas": [
+            {
+                "text": "1986",
+                "value": false
+            },
+            {
+                "text": "1990",
+                "value": false
+            },
+            {
+                "text": "1978",
+                "value": true
+            }
+        ]
+    },{
+        "pregunta": "¿Que siglas representan la Unidad Central de Procesamiento en una computadora?",
+		"respuestas": [
+            {
+                "text": "GPU",
+                "value": false
+            },
+            {
+                "text": "RAM",
+                "value": false
+            },
+            {
+                "text": "CPU",
+                "value": true
+            }
+        ]
+    },{
+        "pregunta": "¿Que red social se usa para compartir textos, fotos y videos con amigos y seguidores?",
+		"respuestas": [
+            {
+                "text": "Instagram",
+                "value": false
+            },
+            {
+                "text": "Twitter",
+                "value": true
+            },
+            {
+                "text": "Snapchat",
+                "value": false
+            }
+        ]
+    },{
+        "pregunta": "¿Que aplicaion se usa para hacer calculos y resolver problemas matemáticos en una computadora?",
+		"respuestas": [
+            {
+                "text": "Calendario",
+                "value": false
+            },
+            {
+                "text": "Calculadora",
+                "value": true
+            },
+            {
+                "text": "Reloj",
+                "value": false
+            }
+        ]
+    },{
+        "pregunta": "¿Que rapero argentino es conocido por cantar She Don't Give a FO?",
+		"respuestas": [
+            {
+                "text": "Khea",
+                "value": false
+            },
+            {
+                "text": "Duki",
+                "value": true
+            },
+            {
+                "text": "Paulo Londra",
+                "value": false
+            }
+        ]
+    },{
+        "pregunta": "¿Quienes fueron los creadores del Quinto Escalon?",
+		"respuestas": [
+            {
+                "text": "Duki",
+                "value": false
+            },
+            {
+                "text": "Alejo y Muphasa",
+                "value": true
+            },
+            {
+                "text": "Dtoke y Papo",
+                "value": false
+            }
+        ]
+    }
+]

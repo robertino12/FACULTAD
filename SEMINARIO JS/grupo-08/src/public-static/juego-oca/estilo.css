@@ -1,0 +1,28 @@
+td {
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    width: 2em;
+    height: 4em;
+    text-align: center;
+}
+
+body {
+    background: rgb(255, 242, 230);
+}
+
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+}
+
+.titulo-oca {
+    padding-bottom: 30px; 
+    padding-top: 30px
+}
+
+/* Por ahora es redundante. Lo puse separado por si queremos hacer algún cambio en particular */
+.subtitulo-oca { 
+    padding-bottom: 30px; 
+    padding-top: 30px
+}

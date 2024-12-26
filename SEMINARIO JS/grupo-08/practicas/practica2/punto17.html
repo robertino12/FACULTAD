@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+    <script src="punto16.js"></script>
+</head>
+<body>
+    <p>¿A quién querés ver levantar la copa?</p> 
+        <select name="futbolistas" id="imagenAmostrar">
+            <option value="">Por favor seleccione una opción...</option>
+            <option value="imagen 1">Kempes</option>
+            <option value="imagen 2">Maradona</option>
+            <option value="imagen 3">Messi</option>
+          </select>
+        <input type="button" value="Mostrar" onclick="showImg()" />
+    <img src="./imagenes/mundial78.jpeg" alt="Mario Alberto Kempes levantando la copa del mundial de 1978" id="imagen-1" style="display:none;" width="600" height="337.5" >
+    <img src="./imagenes/mundial86.jpg" alt="Diego Armando Maradona levantando la copa del mundial de 1986" id="imagen-2" style="display:none;"  width="450" height="659.625">
+    <img src="./imagenes/mundial23.jpg" alt="Lionel Messi levantando la copa del mundial de 2022" id="imagen-3" style="display:none;" width="815.5" height="458.75">
+</body>
+</html>
