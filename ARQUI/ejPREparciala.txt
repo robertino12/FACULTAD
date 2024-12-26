@@ -1,0 +1,341 @@
+EJ 1E P3
+cont equ 10h
+comp equ 11h
+pb equ 31h
+cb equ 33h
+imr equ 21h
+int1 equ 25h
+eoi equ 20h
+
+
+org 80
+dir_luces dw 3000h
+
+org 3000h
+encender:inc cl
+mov al,cl
+out pb,al
+mov al,0
+out cont,al
+cmp cl,07h
+mov al,20h
+out eoi,al;volvemos al programa
+iret
+
+org 2000h
+;config pic
+cli
+mov al,0fdh
+out imr,al
+mov al,20
+out int1,al
+
+;config el timer para q en un segundo haga la subrutina
+mov al,1
+out comp,al
+;config luces
+mov al,0
+out cb,al
+;config contador
+out cont,al
+sti
+mov cl,0
+loop: jmp loop
+hlt 
+end
+-------------------------------------------------------------------------------
+EJ 3E
+dato equ 40h
+estado equ 41h
+eoi equ 20h
+imr equ 21h
+int2 equ 26h
+
+org 1000h
+frase db ?
+
+org 3400h
+poll:in al,estado
+and al,1
+jnz poll
+ret
+
+org 80
+dir_interrup dw 3200h
+
+org 3200h
+interrupcion:mov dl,5
+mov bx,1000h
+call como_ingresaron
+mov bx,1004h
+mov dl,5
+call al_reves
+cmp dl,0
+jnz final
+;inhaibilito las inter
+mov al,0ffh
+out imr,al
+final:mov al,20h
+out eoi,al
+iret
+
+org 3000h
+como_ingresaron:mov al,[bx]
+out dato,al
+inc bx
+dec dl
+jnz como_ingresaron
+ret
+
+org 3100h;si la cpu va mucho mas rapido q la impresora, estos modulos se hacen
+;muy rapido y no llegan a guardarse todas las letras en el buffer
+;xq el dl se sigue decrementando x lo cual sale d la subrrutuna sin imprimirse todo
+;necesito una consulta d estado pra q si el busy esta ocupado no se siga haciendo el modulo
+;voy a poner un polling para ver si se soluciona pero seria debugearlo no arregarlo
+al_reves:call poll
+mov al,[bx]
+out dato,al
+dec bx
+dec dl
+jnz al_reves
+ret
+
+org 2000h
+;config pic
+cli
+mov al,0fbh
+out imr,al
+mov al,20
+out int2,al
+in al,estado
+or al,80h
+out estado,al
+;lectura de los 5 carac guardados en memoria
+mov cl,5
+mov bx,offset frase
+loop:int 6
+inc bx
+dec cl
+jnz loop
+sti
+;imprimir como ingresaron
+lazo:cmp dl,0
+jnz lazo
+int 0
+end
+-------------------------------------------------------------------------------
+EJ 7 EXAMEN FRANJA
+dato equ 40h
+estado equ 41h
+
+org 1000h
+carac db ?
+max db 25
+
+org 3200h
+poll: in al,estado
+and al,1
+jnz poll
+
+org 2000h
+mov bx,offset carac
+mov al,[bx]
+mov cl,max
+lazo:int 6
+cmp byte ptr[bx],0dh;preg si el carac ingresado es enter, si es enter q vaya a imrprimr
+jz imprimir
+inc bx
+dec cl
+jnz lazo
+imprimir:mov bx,1000h
+mov dl,max
+sub dl,cl;conseguis la cant d digitos q se ingresaron antes d q llegue enter
+loop:call poll
+mov al,[bx]
+out dato,al
+inc bx
+dec dl
+jnz loop
+int 0
+end
+
+------------------------------------------------------------------------------
+EJ 9 EXAMEN FRANJA
+pa equ 30h
+ca equ 32h
+cont equ 10h
+comp equ 11h
+eoi equ 20h
+imr equ 21h
+int1 equ 25h
+
+org 1000h
+codigo db "abcdefghi"
+fin db ?
+
+org 3200h
+interrup: mov al,1;pasar a al la cant a imprimir
+out pa,al
+int 7
+inc bx
+dec cl
+jz final
+mov al,0
+out cont,al
+final:mov al,20h
+out eoi,al
+iret
+
+org 40
+dir_timer dw 3200h
+
+org 2000h
+cli
+;config pic
+mov al,0fdh
+out imr,al
+mov al,10
+out int1,al
+;config pio
+mov al,0h
+out ca,al
+;config timer
+mov al,1
+out comp,al
+mov al,0
+out cont,al
+mov bx,offset codigo;envia primer dig a bx
+mov cl,offset fin-offset codigo;cant d carac
+sti
+loop:cmp cl,0
+jnz loop
+int 0
+end
+-----------------------------------------------------------------------------
+EJ SIMULACRO PARCIAL PROFE
+eoi equ 20h
+imr equ 21h
+int0 equ 24h
+dato equ 40h
+estado equ 41h
+
+org 3100h
+poll:in al,estado
+and al,1
+jnz poll
+ret
+
+org 1000h
+frase db "ingrese un numero 1 al 9"
+carac db ?
+msj1 db "el numero no es impar"
+msj2 db "el numero es impar"
+fin db ?
+
+org 3300h
+f10:push ax
+push bx
+mov al,carac
+and al,01h
+jz esPar;verificamos si da 0 es par, sino impar
+
+;hacer pra imprimir el impar
+mov bx,offset msj2
+mov cl,offset fin-offset msj2
+lazo2:call poll
+mov al,[bx]
+out dato,al
+inc bx
+dec cl
+jz final
+jnz lazo2
+esPar:mov bx,offset msj1
+mov cl,offset msj2-offset msj1
+lazo:call poll
+mov al,[bx]
+out dato,al
+inc bx
+dec cl
+jnz lazo
+
+;volver programa
+final:mov al,20h
+out eoi,al
+pop bx
+pop ax
+iret
+
+org 40
+dir_f10 dw 3300h
+
+org 2000h
+loop:mov bx,offset frase
+mov al,offset carac-offset frase
+int 7
+mov bx,offset carac
+int 6
+cmp carac,30h
+js loop;aca comparas si el caracter es menor a 1, y si es menor a uno ponele es 29, 
+;haces la cmp q 29-30=-1, x ende flag d signo prendido osea q salte a leer d nuevo
+cmp carac,03ah;aca comparas si el caracter es mayor a 9
+jns loop;si es mayor osea bit d signo no esta prendido xq la resta va a dar positiva q vuelva
+
+cli
+;config pic para f10
+mov al,11111110b
+out imr,al
+mov al,10
+out int0,al
+mov cl,10
+sti
+lazo3:cmp cl,0
+jnz lazo3
+int 0
+end
+
+-----------------------------------------------------------------------------
+EJ PARCIAL RARO
+eoi equ 20h
+imr equ 21h
+int0 equ 24h
+dato equ 40h
+estado equ 41h
+
+org 3200h
+poll:in al,estado
+and al,1
+jnz poll
+ret
+
+org 40
+dir_f10 dw 3300h
+
+org 3300h
+lazo:call poll
+mov al,[bx]
+out dato,al
+inc bx
+dec cl
+jnz lazo
+mov al,20h
+out eoi,al
+iret
+
+org 1000h
+dni db "44587197"
+fin db ?
+
+org 2000h
+;configurar pic
+cli
+mov al,11111110b
+out imr,al
+mov al,10
+out int0,al
+sti
+mov bx,offset dni
+mov cl,offset fin-offset dni
+loop:cmp cl,0
+jnz loop
+int 0
+end
